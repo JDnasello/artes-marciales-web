@@ -1,38 +1,746 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300&display=swap');
+* {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+    font-size: 2.1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html::-webkit-scrollbar {
+    width: .6vw;
+    background-color: transparent;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+html::-webkit-scrollbar-thumb {
+    background-color: #797a7a;
+    border-radius: 7px;
 }
 
-.App-link {
-  color: #61dafb;
+html::-webkit-scrollbar-track {
+    background-color: #00000000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Seccion barra de navegación e inicio */
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ebe7e7;
+    border-bottom: 2px solid #cacaca;
+}
+
+header .logo {
+    max-width: 55%;
+    height: auto;
+    font-size: 1.5em;
+    text-align: center;
+    cursor: default;
+}
+
+nav  {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 40px;
+    margin-left: 15px;
+    gap: 5px;
+    background-color: #ebe7e7;
+}
+
+nav a {
+    padding-right: 20px;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    font-size: 1.2em;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+    color: #810202;
+}
+
+nav a:hover {
+    color: #990000;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #810202;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: 0.3s ease-in-out;
+}
+
+nav a:hover:first-child::after {
+    transform: scaleX(0.7);
+}
+
+nav a:hover::after {
+    transform: scaleX(0.8);
+}
+
+.link-activo:first-child:focus::after {
+    transform: scaleX(0.7);
+}
+
+.link-activo:focus::after {
+    transform: scaleX(0.8);
+}
+
+@media (max-width: 298px) {
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 45px;
+        margin-bottom: 20px;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+}
+
+/* seccion inicio */
+
+.container-inicio {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 100%;
+    background-image: linear-gradient(0deg,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.7)), url(../src/img/fondo-inicio.jpg);
+        background-size: cover;
+        background-position: center center;
+        word-wrap: break-word;
+}
+
+.container-inicio div {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    gap: 8px;
+}
+
+.container-inicio div button {
+    margin-top: 10px;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #640303;
+    color: #fff;
+    transition: .4s;
+}
+
+.container-inicio button:hover {
+    background-color: #520202;
+}
+
+/* seccion de explorar */
+
+.explorar {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.explorar div {
+    margin: 35px 5px;
+}
+
+.explorar h1 {
+    color: #810202;
+}
+
+.explorar .frase {
+    font-size: 2em;
+    margin-top: 85px;
+    margin-bottom: 120px;
+    font-family: 'Great Vibes', italic;
+    font-weight: 500;
+    animation: teclear 1.5s steps(50), efecto .8s step-end alternate;
+}
+
+@keyframes teclear {
+    from {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes efecto {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Contenedores de artes marciales */
+
+.container-artes-marciales {
+    margin: 0;
+}
+
+.container-individual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    margin: 0 0 20px;
+    border: none;
+    border-radius: 20px;
+}
+
+.container-individual button {
+    padding: 8px 16px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    background-color: #640303;
+    transition: .4s;
+}
+
+.container-individual button:hover {
+    background-color: #520202;
+}
+
+.titulo-descripcion h2 {
+    margin-top: 15px;
+}
+
+.titulo-descripcion h4 {
+    margin-top: 30px;
+}
+
+/* seccion caracteristicas del arte marcial seleccionado */
+
+.container-arte-marcial {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px;
+}
+
+/* Títulos y encabezados */
+.container-arte-marcial h1 {
+    text-align: center;
+    margin: 30px 8px;
+    font-size: 1.35em;
+}
+
+.container-arte-marcial h1 span {
+    color: #810202;
+}
+
+.container-arte-marcial h3 {
+    text-align: center;
+    margin: 20px 8px;
+    font-size: 1.1em;
+}
+
+.caracteristicas {
+    display: flex;
+    flex-direction: column;
+}
+
+.caracteristicas ul {
+    margin-bottom: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.caracteristicas ul li {
+    margin-bottom: 30px;
+}
+
+.caracteristicas b {
+    color: #810202;
+    font-size: 18px;
+}
+
+/* Imagen */
+.caracteristicas-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 45px;
+}
+
+.caracteristicas-img img {
+    border-radius: 20px;
+    box-shadow: 1px 1px 4px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* agregado especial de cinturones para bjj */
+
+.caracteristicas h2 {
+    text-align: center;
+    color: #810202;
+}
+
+.cinturones-bjj {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.columna {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nombre-cinturon p {
+    margin: 0 0 24px;
+    font-size: 1em;
+}
+
+.img-cinturon img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    width: 5em;
+    margin-bottom: 10px;
+}
+
+/* seccion contacto */
+
+.container-contacto {
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+.volver-a-inicio-desde-contacto {
+    width: 95%;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 5px 0 0 5px;
+}
+
+.volver-a-inicio-desde-contacto a {
+    color: #810202;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.volver-a-inicio-desde-contacto a:hover {
+    text-decoration: underline;
+}
+
+.container-contacto img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container-contacto form {
+    text-align: center;
+    margin: 0 10px 20px;
+    width: 90%;
+    max-width: 100%;
+    padding: 0;
+}
+
+form h4 {
+    font-size: 1rem;
+    color: #810202;
+    margin: 0 0 20px;
+}
+
+.inputs {
+    margin-top: 3em;
+    display: grid;
+    gap: 2.3em;
+}
+
+.inputs .inputs-grupo {
+    position: relative;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.mensaje-error {
+    color: red;
+    font-size: .7rem;
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    background: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: .9rem;
+    padding: 1.2em .4em;
+    border: 2px solid #810202;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+.form-label {
+    color: #810202;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    transition: .3s;
+    pointer-events: none;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + label.form-label {
+    top: 0;
+    left: 15px;
+    font-size: 0.8rem;
+    padding: 0 .4em;
+    background: whitesmoke;
+}
+
+textarea {
+    background: none;
+    border: 2px solid #810202;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5em;
+    margin: 20px 0 15px;
+}
+
+.form-btns .btn-cancelar {
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: 2px solid #810202;
+    color: #810202;
+    font-weight: 700;
+    background: none;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.form-btns .btn-enviar {
+    padding: 12px 26px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #640303;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.form-btns .btn-cancelar:hover {
+    box-shadow: 1px 1px 3px;
+}
+
+.form-btns .btn-enviar:hover {
+    background-color: #520202;
+}
+
+.container-contacto-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.container-contacto-whatsapp h4 {
+    margin: 0;
+    margin-right: 10px;
+    flex-grow: 1;
+}
+
+.container-contacto-whatsapp span {
+    color: rgb(11, 185, 25);
+}
+
+.container-contacto-whatsapp a {
+    width: 40px;
+}
+
+.container-contacto-whatsapp img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* para ajustar medidas de la seccion contacto en base al ancho de la pantalla */
+
+@media (min-width: 720px) {
+
+    .container-contacto img {
+        width: 300px;
+    }
+
+    .container-contacto form {
+        width: 600px;
+    }
+
+    form h4 {
+        font-size: 1.8rem;
+    }
+
+    .mensaje-error {
+        font-size: 1rem;
+    }
+
+    .container-contacto-whatsapp h4 {
+        font-size: 1.5rem;
+    }
+
+    .container-contacto-whatsapp a {
+        width: 50px;
+    }
+}
+
+@media (max-width: 719px) {
+    .container-contacto form {
+        width: 400px;
+    }
+
+    form h4 {
+        font-size: 1.6rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container-contacto form {
+        width: 70%;
+    }
+
+    form h4 {
+        font-size: 1.4rem;
+    }
+
+    .form-btns button {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 375px) {
+    .form-btns {
+        gap: 1em;
+    }
+
+    form h4 {
+        font-size: 1.2rem;
+    }
+
+    .container-contacto-whatsapp h4 {
+        font-size: .8rem;
+        margin-bottom: 10px;
+    }
+}
+
+/* para ajustar medidas de la imagen de whatsapp cuando la pantalla es pequeña */
+
+.footer-container {
+    max-width: 100%;
+    width: 100%;
+    background-color: #222224;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.footer-container .footer-container-contenido {
+    margin: 20px 0;
+}
+
+.footer-container .footer-container-contenido-img {
+    height: 250px;
+}
+
+.footer-container .footer-container-contenido-img figure {
+    width: 70%;
+    height: auto;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container h2 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 40px;
+}
+
+.footer-container .footer-container-contenido-img figure img {
+    width: 300px;
+    max-width: 300px;
+}
+
+.footer-container .footer-container-contenido p {
+    color: #fff;
+}
+
+.contenido-red-social {
+    margin: 20px 0;
+}
+
+.contenido-red-social a {
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin: 10px 10px;
+    background-color: rgb(36, 38, 39);
+    text-align: center;
+    transition: .2s;
+}
+
+.contenido-red-social a:hover {
+    background-color: #797a7a;
+}
+
+.copyright {
+    background-color: #1a1a1b;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+/* configuracion de la página para desktop */
+
+@media (min-width: 720px) {
+    header {
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 100%;
+        height: 85px;
+        padding: 5px 10%;
+        position: fixed;
+        top: 0;
+        transition: background-color .4s;
+        z-index: 1000;
+    }
+    
+    .header-scroll {
+        background-color: #cacaca96;
+    }
+    
+    header .logo {
+        margin-right: auto;
+        height: 160px;
+        width: auto;
+    }
+    
+    header nav {
+        display: inline-flex;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        gap: 15px;
+        background-color: transparent;
+    }
+
+    .footer-container {
+        width: 100%;
+        background-color: #222224;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+        padding: 45px 0;
+    }
+
+    .footer-container .footer-container-contenido-img figure img {
+        width: 300px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .explorar .frase {
+        margin-top: 105px;
+        margin-bottom: 80px;
+    }
+
+    .container-artes-marciales {
+        display: grid;
+        grid-template-columns: 45% 45%;
+        grid-template-rows: auto;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .container-arte-marcial {
+        margin: 85px auto 0;
+    }
+
+    .container-arte-marcial h1 {
+        margin-bottom: 50px;
+        font-size: 1.8em;
+    }
+
+    .container-arte-marcial h3 {
+        font-size: 1.4em;
+    }
+
+    .caracteristicas-img img {
+        width: 500px;
+    }
+}
+
+@media (min-width: 900px) {
+
+    .container-arte-marcial {
+        margin: 85px 0 0;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .container-arte-marcial h3 {
+        text-align: left;
+        margin-left: 0;
+    }
+
+    .caracteristicas {
+        margin: 20px 0 0 1px;
+        padding: 0;
+    }
+
+    .caracteristicas ul {
+        align-items: flex-start;
+    }
 }
