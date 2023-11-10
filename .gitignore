@@ -5,8 +5,12 @@
 /.pnp
 .pnp.js
 
+#public
+public/robots.txt
+
 # testing
 /coverage
+src/App.test.js
 
 # production
 /build
