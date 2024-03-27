@@ -15,7 +15,7 @@ const Footer = () => {
                 </div>
                 <div className="footer-container-contenido">
                     <h2>Información de la página:</h2>
-                    <p>Esta página fue creada con el fin de informar a las personas interesadas en practicar artes marciales, y fomentar el desarrollo personal de las mismas. Es responsabilidad del individuo aprender y utilizarlas para defensa personal.</p>
+                    <p>Esta página fue creada con el fin de informar a las personas interesadas en practicar artes marciales, y fomentar el desarrollo personal de las mismas. Es responsabilidad de cada uno aprender y utilizarlas para defensa personal.</p>
                 </div>
                 <div className='footer-container-contenido'>
                     <h2>Siguenos:</h2>
@@ -26,7 +26,7 @@ const Footer = () => {
                 </div>
             </div>
                 <div className='copyright'>
-                    <small>&copy; 2023 <b>Artes Marciales Olavarria</b> - Todos los derechos reservados.</small>
+                    <small>&copy; 2024 <b>Artes Marciales Olavarria</b> - Todos los derechos reservados.</small>
                 </div>
         </footer>
     )

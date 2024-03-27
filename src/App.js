@@ -21,8 +21,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/explorar" element={<Explorar />} />
-        <Route path="/contacto" element={<Contacto />} />
         <Route path="/artes/:arteid" element={<ArteMarcialIndividual />} />
+        <Route path="/contacto" element={<Contacto />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       {!estaEnLaRutaContacto && !estaEnLaRutaInicio && <Footer />}
